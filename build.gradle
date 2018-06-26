@@ -1,0 +1,33 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile group: 'org.springframework', name: 'spring-aop', version: '5.0.7.RELEASE'
+	compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.2.RELEASE'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile 'org.mockito:mockito-core:2.7.22'
+}
